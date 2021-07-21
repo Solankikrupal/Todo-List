@@ -1,0 +1,189 @@
+body,html{
+  margin:0;
+  padding:0;
+  font-family:sans-serif;
+  height:100%;
+  box-sizing:border-box;
+  background-image: linear-gradient(to bottom, #858ee9, #00b1ff, #00cefd, #00e3cd, #57f08c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.top-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+
+  overflow: hidden;
+}
+.input-field{
+  position: relative;
+  height: 100px;
+}
+.todoField{
+  width: 400px;
+  height:100%;
+  border-color: transparent;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: normal;
+
+  outline: none;
+  position: relative;
+  background-color: transparent;
+  z-index: 1;
+}
+.label-name{
+  width: 400px;
+  height:100px;
+
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  transform: translateY(42px);
+  z-index: 0;
+}
+.label-name::before{
+  content: '';
+  width: 400px;
+  height:100px;
+  border-bottom: solid;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  transform: translateX(-400px);
+
+  border-bottom-color:yellow;
+
+}
+.todoField:focus + .label-name::before{
+  animation: slide 1s ease forwards ;
+}
+@keyframes slide {
+  from{
+    transform: translateX(-400px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+.span-name{
+  font-size: 25px;
+  color:black;
+}
+
+.todoField:focus + .label-name{
+
+  animation: spanUp 0.5s ease forwards;
+  transition: all 0.5s ease;
+}
+.todoField:valid + .label-name{
+  animation: spanUp 0.5s ease forwards;
+
+}
+
+.todoField:valid + .label-name,
+.todoField:focus + .label-name span{
+  font-size: 20px;
+  color:grey;
+  transition: all 0.5s ease;
+}
+.todoField:valid {
+  transform: translateY(0);
+}
+
+@keyframes spanUp
+ {
+  from{
+    transform: translateY(42px);
+
+  }
+  to{
+    transform: translateY(0px);
+
+  }
+}
+
+.addbtn{
+  width: 50px;
+  height: 50px;
+  margin-left: 25px;
+  font-size: 30px;
+  font-weight: bolder;
+  border-radius: 10px;
+  border-color: transparent;
+}
+.middle-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  transform-origin: top left;
+  display: none;
+
+
+}
+@keyframes bend {
+  0%{
+      transform: rotate(0deg);
+  }
+  20%{
+    transform: rotate(50deg);
+  }
+  40%{
+
+      transform: rotate(45deg);
+    }
+    100%{
+
+      transform: translateY(500px);
+      opacity: 0;
+    }
+
+}
+@keyframes drop {
+
+  to{
+      display: none;
+  }
+}
+.show{
+  display: flex;
+}
+.addedField{
+  width: 300px;
+  height:45px;
+  border-radius: 10px;
+  border-color: transparent;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: normal;
+  color: grey;
+  outline: none;
+
+}
+.modifybtn,.removebtn{
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  font-weight: bolder;
+  border-color: transparent;
+  color:#858ee9;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.removebtn{
+  font-size: 25px;
+  color:red;
+
+}
+.middle-container.border-glow{
+  border:solid;
+}
